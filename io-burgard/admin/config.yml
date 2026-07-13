@@ -24,6 +24,24 @@ collections:
   - name: "settings"
     label: "Paramètres du site"
     files:
+      - name: "home"
+        label: "Page d'accueil"
+        file: "content/settings/home.yml"
+        fields:
+          - label: "Annonces"
+            name: "announcements"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Texte", name: "text", widget: "string" }
+              - { label: "Lien", name: "url", widget: "string", required: false }
+          - label: "Images de la page d'accueil"
+            name: "images"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+
       - name: "bio_fr"
         label: "Biographie (Français)"
         file: "content/settings/bio.fr.md"
