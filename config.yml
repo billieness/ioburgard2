@@ -1,7 +1,7 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: github
   repo: billieness/ioburgard2
+  branch: main
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
