@@ -6,30 +6,7 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# Force YAML files to be served as text/yaml
-[[headers]]
-  for = "*.yml"
-  [headers.values]
-    Content-Type = "text/yaml; charset=utf-8"
-
-[[headers]]
-  for = "*.yaml"
-  [headers.values]
-    Content-Type = "text/yaml; charset=utf-8"
-
-# Specific header for config.yml to ensure it's served correctly
-[[headers]]
-  for = "/config.yml"
-  [headers.values]
-    Content-Type = "text/yaml; charset=utf-8"
-    X-Content-Type-Options = "nosniff"
-
-# Redirects ONLY for admin and api paths
-[[redirects]]
-  from = "/admin"
-  to = "/admin/"
-  status = 301
-
+# Redirects for Decap CMS
 [[redirects]]
   from = "/admin/*"
   to = "/admin/index.html"
