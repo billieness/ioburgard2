@@ -6,8 +6,24 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Force YAML files to be served with correct Content-Type
+[[headers]]
+  for = "*.yml"
+  [headers.values]
+    Content-Type = "text/yaml"
+
+[[headers]]
+  for = "*.yaml"
+  [headers.values]
+    Content-Type = "text/yaml"
+
 # Enable Git Gateway for CMS to commit to GitHub
 [[redirects]]
   from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/api/*"
   to = "/admin/index.html"
   status = 200
