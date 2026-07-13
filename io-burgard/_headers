@@ -1,0 +1,9 @@
+/config.yml
+  Content-Type: text/yaml
+  X-Content-Type-Options: nosniff
+
+/*.yml
+  Content-Type: text/yaml
+
+/*.yaml
+  Content-Type: text/yaml
