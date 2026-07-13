@@ -1,10 +1,6 @@
 backend:
-  name: github
-  repo: billieness/ioburgard2
+  name: git-gateway
   branch: main
-  base_url: https://ioburgard2-qn1sf69cf-billieness-projects.vercel.app
-  auth_endpoint: /api/auth
-  preview: false
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
