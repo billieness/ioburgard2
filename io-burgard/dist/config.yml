@@ -56,11 +56,11 @@ collections:
     i18n: true
     fields:
       - { label: "Titre", name: "title", widget: "string", i18n: true }
-      - { label: "Date", name: "date", widget: "datetime", i18n: "duplicate", required: false }
+      - { label: "Date", name: "date", widget: "datetime", i18n: true, required: false }
       - label: "Images"
         name: "images"
         widget: "list"
-        i18n: "duplicate"
+        i18n: true
         required: false
         field: { label: "Image", name: "image", widget: "image" }
       - { label: "Texte", name: "body", widget: "markdown", i18n: true, required: false }

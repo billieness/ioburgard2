@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: billieness/ioburgard2
   branch: main
 
 media_folder: "assets/uploads"
@@ -12,43 +13,22 @@ i18n:
 
 collections:
   - name: "pages"
-    label: "Pages du site"
+    label: "Pages"
     files:
       - name: "home"
-        label: "Page d'accueil"
+        label: "Accueil"
         file: "content/settings/home.yml"
         fields:
-          - label: "Liens d'actualité"
-            name: "announcements"
-            widget: "list"
-            required: false
-            fields:
-              - { label: "Texte", name: "text", widget: "string" }
-              - { label: "Lien", name: "url", widget: "string", required: false }
-          - label: "Images de la page d'accueil"
-            name: "images"
-            widget: "list"
-            required: false
-            field: { label: "Image", name: "image", widget: "image" }
-      - name: "bio_fr"
-        label: "Bio française"
-        file: "content/settings/bio.fr.md"
-        fields:
-          - { label: "Texte", name: "body", widget: "markdown" }
-      - name: "bio_en"
-        label: "Bio anglaise"
-        file: "content/settings/bio.en.md"
-        fields:
-          - { label: "Texte", name: "body", widget: "markdown" }
-      - name: "portfolio"
-        label: "Portfolio PDF"
-        file: "content/settings/portfolio.yml"
-        fields:
-          - { label: "PDF du portfolio", name: "portfolio", widget: "file" }
-  - name: "projects"
-    label: "Projets"
-    label_singular: "Projet"
-    folder: "content/projects"
+          - label: "Titre"
+            name: "title"
+            widget: "string"
+          - label: "Contenu"
+            name: "body"
+            widget: "markdown"
+
+  - name: "articles"
+    label: "Articles"
+    folder: "content/articles"
     create: true
     extension: "md"
     format: "frontmatter"
@@ -56,11 +36,6 @@ collections:
     i18n: true
     fields:
       - { label: "Titre", name: "title", widget: "string", i18n: true }
-      - { label: "Date", name: "date", widget: "datetime", i18n: true, required: false }
-      - label: "Images"
-        name: "images"
-        widget: "list"
-        i18n: true
-        required: false
-        field: { label: "Image", name: "image", widget: "image" }
-      - { label: "Texte", name: "body", widget: "markdown", i18n: true, required: false }
+      - { label: "Date", name: "date", widget: "datetime", i18n: true }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Contenu", name: "body", widget: "markdown", i18n: true }
