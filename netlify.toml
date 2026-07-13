@@ -1,0 +1,33 @@
+[build]
+  base = "io-burgard"
+  command = "npm run build"
+  publish = "io-burgard/dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Enable Netlify Identity for Decap CMS
+[context.production.environment]
+  NETLIFY_IDENTITY_URL = "https://io-burgard.netlify.app"
+  NETLIFY_IDENTITY_REDIRECT_URL = "https://io-burgard.netlify.app/admin"
+
+# Enable Git Gateway for CMS to commit to GitHub
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/api/*"
+  to = "/admin/index.html"
+  status = 200
+
+# Enable Identity service
+[identity]
+  # This enables Netlify Identity service
+  # You must also enable it in the Netlify UI under Site settings > Identity
+
+# Enable Git Gateway
+[git]
+  # This enables Git Gateway for the CMS
+  # Must be enabled in Netlify UI: Site settings > Identity > Settings > Enable Git Gateway

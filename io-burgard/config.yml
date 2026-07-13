@@ -2,6 +2,10 @@ backend:
   name: git-gateway
   branch: main
 
+# IMPORTANT: This must match the site name in Netlify
+# Go to: Site settings > Identity > Settings > Site name
+  site_domain: io-burgard
+
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
