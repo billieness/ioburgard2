@@ -1,7 +1,17 @@
 [build]
-  base = "io-burgard"
-  command = "npm run build"
+  command = "cd io-burgard && npm run build"
   publish = "io-burgard/dist"
 
 [build.environment]
   NODE_VERSION = "20"
+
+# Force YAML to be served as text/yaml
+[[headers]]
+  for = "*.yml"
+  [headers.values]
+    Content-Type = "text/yaml"
+
+[[headers]]
+  for = "/config.yml"
+  [headers.values]
+    Content-Type = "text/yaml"
