@@ -1,0 +1,65 @@
+backend:
+  name: github
+  repo: billieness/ioburgard2
+  branch: main
+  base_url: https://billieness.github.io
+  auth_endpoint: /admin/
+  site_domain: billieness.github.io
+
+site_url: https://billieness.github.io/ioburgard2/
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+
+i18n:
+  structure: multiple_folders
+  locales: [fr, en]
+  default_locale: fr
+
+collections:
+  - name: "settings"
+    label: "Paramètres du site"
+    files:
+      - name: "bio_fr"
+        label: "Biographie (Français)"
+        file: "content/settings/bio.fr.md"
+        fields:
+          - label: "Contenu"
+            name: "body"
+            widget: "markdown"
+
+      - name: "bio_en"
+        label: "Biography (English)"
+        file: "content/settings/bio.en.md"
+        fields:
+          - label: "Content"
+            name: "body"
+            widget: "markdown"
+
+      - name: "portfolio"
+        label: "Portfolio PDF"
+        file: "content/settings/portfolio.yml"
+        fields:
+          - label: "PDF Path"
+            name: "portfolio"
+            widget: "string"
+            hint: "Chemin vers le fichier PDF (ex: /portfolio.pdf)"
+
+  - name: "projects"
+    label: "Projets"
+    folder: "content/projects"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    i18n: true
+    fields:
+      - { label: "Titre", name: "title", widget: "string", i18n: true }
+      - { label: "Date", name: "date", widget: "datetime", i18n: true, required: false }
+      - { label: "Images", name: "images", widget: "list", required: false, i18n: true, 
+          fields: [{ label: "Image", name: "image", widget: "image" }] }
+      - { label: "Contenu", name: "body", widget: "markdown", i18n: true }

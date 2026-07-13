@@ -2,6 +2,11 @@
   "name": "io-burgard",
   "version": "1.0.0",
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "prebuild": "npm install marked js-yaml"
+  },
+  "dependencies": {
+    "marked": "^12.0.0",
+    "js-yaml": "^4.1.0"
   }
 }

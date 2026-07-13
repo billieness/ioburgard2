@@ -1,14 +1,16 @@
-name: Deploy to Netlify
+name: Build and Deploy
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Nécessaire pour que Decap CMS puisse pousser les commits
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -21,10 +23,9 @@ jobs:
       - name: Build site
         run: cd io-burgard && npm run build
       
-      - name: Deploy to Netlify
-        uses: netlify/actions/cli@master
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          args: deploy --dir=io-burgard/dist --prod
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          keep_files: false
