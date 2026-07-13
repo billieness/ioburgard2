@@ -4,7 +4,7 @@ const path = require('path');
 const root = __dirname;
 const out = path.join(root, 'dist');
 const read = (file) => fs.readFileSync(file, 'utf8');
-const esc = (value = '') => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const esc = (value = '') => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const slugify = (value) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
 function parseArticle(file, locale) {
@@ -50,11 +50,12 @@ function readHomeSettings() {
   let section = '';
   let announcement = null;
   for (const line of read(file).split('\n')) {
-    if (line === 'announcements:') { section = 'announcements'; continue; }
-    if (line === 'images:') { section = 'images'; continue; }
+    const trimmedLine = line.trim();
+    if (trimmedLine === 'announcements:') { section = 'announcements'; continue; }
+    if (trimmedLine === 'images:') { section = 'images'; continue; }
     const text = line.match(/^\s*-\s*text:\s*(.*)$/);
     const url = line.match(/^\s+url:\s*(.*)$/);
-    const image = line.match(/^\s*-\s*(\/.*)$/);
+    const image = line.match(/^\s*-\s*(.+)$/);
     if (section === 'announcements' && text) {
       announcement = { text: unquote(text[1]), url: '' };
       settings.announcements.push(announcement);
