@@ -6,18 +6,27 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# Force YAML files to be served with correct Content-Type
+# Force YAML files to be served as text/yaml and not downloaded
 [[headers]]
   for = "*.yml"
   [headers.values]
-    Content-Type = "text/yaml"
+    Content-Type = "text/yaml; charset=utf-8"
+    X-Content-Type-Options = "nosniff"
 
 [[headers]]
   for = "*.yaml"
   [headers.values]
-    Content-Type = "text/yaml"
+    Content-Type = "text/yaml; charset=utf-8"
+    X-Content-Type-Options = "nosniff"
 
-# Enable Git Gateway for CMS to commit to GitHub
+# Disable download for YAML files
+[[headers]]
+  for = "/config.yml"
+  [headers.values]
+    Content-Type = "text/yaml; charset=utf-8"
+    Content-Disposition = "inline"
+
+# Redirects for Decap CMS
 [[redirects]]
   from = "/admin/*"
   to = "/admin/index.html"
