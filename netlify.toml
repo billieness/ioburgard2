@@ -1,4 +1,5 @@
 [build]
+  base = "io-burgard"
   command = "npm run build"
   publish = "dist"
 
