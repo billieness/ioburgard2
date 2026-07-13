@@ -1,6 +1,7 @@
 [build]
-  command = "cd io-burgard && npm run build"
-  publish = "io-burgard/dist"
+  base = "io-burgard"
+  command = "npm run build"
+  publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20"
