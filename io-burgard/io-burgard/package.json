@@ -1,7 +1,0 @@
-{
-  "name": "io-burgard",
-  "private": true,
-  "scripts": {
-    "build": "node build.js"
-  }
-}
