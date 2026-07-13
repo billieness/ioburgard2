@@ -129,7 +129,7 @@ if (fs.existsSync(path.join(root, 'public'))) {
   fs.cpSync(path.join(root, 'public'), out, { recursive: true });
 }
 fs.cpSync(path.join(root, 'admin'), path.join(out, 'admin'), { recursive: true });
-fs.copyFileSync(path.join(root, 'config.yml'), path.join(out, 'config.yml'));
+fs.copyFileSync(path.join(root, "..", "config.yml"), path.join(out, 'config.yml'));
 const selectedPortfolio = path.join(root, 'public', portfolioSetting.replace(/^\/+/, ''));
 const portfolioSource = fs.existsSync(selectedPortfolio) ? selectedPortfolio : path.join(root, 'portfolio.pdf');
 fs.copyFileSync(portfolioSource, path.join(out, 'portfolio.pdf'));
