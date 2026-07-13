@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = __dirname;
-const out = path.join(root, 'dist');
+const out = path.join(root, '..', 'docs'); // Génère dans /docs à la racine du dépôt
 
 // Nettoyer et recréer le dossier de sortie
 fs.rmSync(out, { recursive: true, force: true });
@@ -15,7 +15,8 @@ fs.copyFileSync(path.join(root, 'config.yml'), path.join(out, 'config.yml'));
 fs.copyFileSync(path.join(root, 'style.css'), path.join(out, 'style.css'));
 
 // Copier les pages HTML existantes
-const htmlFiles = ['index.html', 'bio.html', 'bio-en.html', 'contact.html', 'contact-en.html', 'projets.html', 'projets-en.html',
+const htmlFiles = ['index.html', 'bio.html', 'bio-en.html', 'contact.html', 'contact-en.html',
+                   'projets.html', 'projets-en.html',
                    'la-bete-dans-la-jungle.html', 'la-bete-dans-la-jungle-en.html',
                    'la-bete-dans-la-jungle-2.html', 'la-bete-dans-la-jungle-2-en.html'];
 htmlFiles.forEach(file => {
@@ -35,4 +36,4 @@ if (fs.existsSync(path.join(root, 'portfolio.pdf'))) {
   fs.copyFileSync(path.join(root, 'portfolio.pdf'), path.join(out, 'portfolio.pdf'));
 }
 
-console.log('Build terminé: site généré dans /dist');
+console.log('Build terminé: site généré dans /docs');
