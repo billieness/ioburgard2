@@ -1,7 +1,7 @@
 [build]
   base = "io-burgard"
   command = "npm run build"
-  publish = "io-burgard/dist"
+  publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20"
@@ -21,13 +21,3 @@
   from = "/api/*"
   to = "/admin/index.html"
   status = 200
-
-# Enable Identity service
-[identity]
-  # This enables Netlify Identity service
-  # You must also enable it in the Netlify UI under Site settings > Identity
-
-# Enable Git Gateway
-[git]
-  # This enables Git Gateway for the CMS
-  # Must be enabled in Netlify UI: Site settings > Identity > Settings > Enable Git Gateway
