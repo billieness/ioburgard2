@@ -1,0 +1,9 @@
+/config.yml
+  Content-Type: text/yaml; charset=utf-8
+  X-Content-Type-Options: nosniff
+
+/*.yml
+  Content-Type: text/yaml; charset=utf-8
+
+/*.yaml
+  Content-Type: text/yaml; charset=utf-8
