@@ -5,3 +5,21 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+# Force Netlify to serve YAML files as static files
+[[headers]]
+  for = "*.yml"
+  [headers.values]
+    Content-Type = "text/yaml"
+
+[[headers]]
+  for = "*.yaml"
+  [headers.values]
+    Content-Type = "text/yaml"
+
+# Ensure config.yml is served as static file
+[[headers]]
+  for = "/config.yml"
+  [headers.values]
+    Content-Type = "text/yaml"
+    X-Content-Type-Options = "nosniff"
