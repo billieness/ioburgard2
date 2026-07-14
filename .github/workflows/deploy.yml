@@ -12,6 +12,9 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: https://billieness.github.io/ioburgard2/
     steps:
       - uses: actions/checkout@v4
       
