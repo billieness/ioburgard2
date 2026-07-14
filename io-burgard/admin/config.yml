@@ -2,9 +2,8 @@ backend:
   name: github
   repo: billieness/ioburgard2
   branch: main
-  base_url: https://billieness.github.io
+  base_url: https://github.com
   auth_endpoint: /ioburgard2/admin/
-  site_domain: billieness.github.io
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
