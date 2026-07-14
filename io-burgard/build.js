@@ -17,9 +17,6 @@ fs.copyFileSync(path.join(root, 'admin', 'config.yml'), path.join(out, 'admin', 
 fs.copyFileSync(path.join(root, 'style.css'), path.join(out, 'style.css'));
 fs.copyFileSync(path.join(root, 'portfolio.pdf'), path.join(out, 'portfolio.pdf'));
 
-// Créer le fichier _redirects pour Netlify Identity
-fs.writeFileSync(path.join(out, '_redirects'), '/admin/*  /index.html  200\n');
-
 // Fonction pour corriger les chemins des images (enlever le / initial)
 function fixImagePaths(htmlContent) {
   return htmlContent.replace(/src="\/assets\//g, 'src="assets/')
