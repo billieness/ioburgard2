@@ -1,12 +1,7 @@
 backend:
-  name: github
-  repo: billieness/ioburgard2
+  name: git-gateway
   branch: main
-  base_url: https://billieness.github.io
-  auth_endpoint: /admin/
-  site_domain: billieness.github.io
-
-site_url: https://billieness.github.io/ioburgard2/
+  repo: billieness/ioburgard2
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
@@ -26,7 +21,7 @@ collections:
     files:
       - name: "home"
         label: "Page d'accueil"
-        file: "content/settings/home.yml"
+        file: "io-burgard/content/settings/home.yml"
         fields:
           - label: "Annonces"
             name: "announcements"
@@ -44,7 +39,7 @@ collections:
 
       - name: "bio_fr"
         label: "Biographie (Français)"
-        file: "content/settings/bio.fr.md"
+        file: "io-burgard/content/settings/bio.fr.md"
         fields:
           - label: "Contenu"
             name: "body"
@@ -52,7 +47,7 @@ collections:
 
       - name: "bio_en"
         label: "Biography (English)"
-        file: "content/settings/bio.en.md"
+        file: "io-burgard/content/settings/bio.en.md"
         fields:
           - label: "Content"
             name: "body"
@@ -60,7 +55,7 @@ collections:
 
       - name: "portfolio"
         label: "Portfolio PDF"
-        file: "content/settings/portfolio.yml"
+        file: "io-burgard/content/settings/portfolio.yml"
         fields:
           - label: "PDF Path"
             name: "portfolio"
@@ -69,7 +64,7 @@ collections:
 
   - name: "projects"
     label: "Projets"
-    folder: "content/projects"
+    folder: "io-burgard/content/projects"
     create: true
     extension: "md"
     format: "frontmatter"

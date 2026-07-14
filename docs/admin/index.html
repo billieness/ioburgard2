@@ -4,8 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CMS - Io Burgard</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@3.14.1/dist/decap-cms.js"></script>
+  <script>
+    // Configure Netlify Identity for Git Gateway
+    if (window.netlifyIdentity) {
+      netlifyIdentity.init();
+    }
+  </script>
 </body>
 </html>
